@@ -12,6 +12,7 @@ scale = Vector2(0.599998, 0.840001)
 position = Vector2(-41.6667, -15.4762)
 scale = Vector2(1, 1)
 texture = ExtResource("1_140xw")
+expand_mode = 5
 
 [node name="Bread-1" type="Sprite2D" parent="."]
 position = Vector2(-3.33334, 1.19046)
