@@ -17,14 +17,17 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-BreadTextureDatas="*res://scripts/bread/BreadTextureDatas.gd"
-BreadDatas="*res://scripts/bread/BreadDatas.gd"
 GlobalStats="*res://scripts/GlobalStats.gd"
+BreadDatas="*res://scripts/bread/BreadDatas.gd"
+BreadTextureDatas="*res://scripts/bread/BreadTextureDatas.gd"
+UpgradeDatas="*res://scripts/UpgradeDatas.gd"
+SaveHandler="*res://scripts/SaveHandler.gd"
 
 [display]
 
 window/size/viewport_width=480
 window/size/viewport_height=800
+window/subwindows/embed_subwindows=false
 
 [rendering]
 
