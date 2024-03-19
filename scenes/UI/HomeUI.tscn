@@ -1,6 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bftahomygbopw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ih4u"]
+line_spacing = -5.0
 font_size = 24
 font_color = Color(0.945098, 0.835294, 0.129412, 1)
 
@@ -35,58 +36,42 @@ theme_override_constants/margin_right = 15
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "Money"
+text = "Money:
+0"
 label_settings = SubResource("LabelSettings_1ih4u")
+horizontal_alignment = 1
 
 [node name="Gems" type="Label" parent="Control/CurrencyUI"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-text = "GEMS"
+text = "Gems
+"
 label_settings = SubResource("LabelSettings_dq4i7")
 
-[node name="Button" type="Button" parent="Control"]
-layout_mode = 2
+[node name="StoreButton" type="Button" parent="Control"]
 offset_top = 693.0
-offset_right = 96.0
+offset_right = 160.0
 offset_bottom = 789.0
 scale = Vector2(1, 1.12)
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "?"
-
-[node name="Button2" type="Button" parent="Control"]
-offset_left = 96.0
-offset_top = 693.0
-offset_right = 192.0
-offset_bottom = 789.0
-scale = Vector2(1, 1.12)
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "?"
+text = "Store
+"
 
 [node name="UpgradeButton" type="Button" parent="Control"]
-offset_left = 192.0
+offset_left = 160.0
 offset_top = 693.0
-offset_right = 288.0
+offset_right = 320.0
 offset_bottom = 789.0
 scale = Vector2(1, 1.12)
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "Upgrades"
-
-[node name="ShopButton" type="Button" parent="Control"]
-offset_left = 288.0
-offset_top = 693.0
-offset_right = 384.0
-offset_bottom = 789.0
-scale = Vector2(1, 1.12)
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Shop"
+text = "Upgrades
+"
 
 [node name="SettingsButton" type="Button" parent="Control"]
-offset_left = 384.0
+offset_left = 320.0
 offset_top = 693.0
 offset_right = 480.0
 offset_bottom = 789.0
@@ -94,3 +79,11 @@ scale = Vector2(1, 1.12)
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Settings"
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+offset_left = 17.0
+offset_top = 17.0
+offset_right = 87.0
+offset_bottom = 67.0
+text = "Boost"
