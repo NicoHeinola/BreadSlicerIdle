@@ -6,9 +6,9 @@
 [node name="Main" type="Node2D"]
 
 [node name="Bg-1" type="Sprite2D" parent="."]
-position = Vector2(635, 257)
+position = Vector2(0, -1)
 texture = ExtResource("1_140xw")
 
 [node name="Bread-1" type="Sprite2D" parent="."]
-position = Vector2(648, 277)
+position = Vector2(605, 292)
 texture = ExtResource("1_b0jdx")
