@@ -21,6 +21,7 @@ GlobalStats="*res://scripts/GlobalStats.gd"
 BreadDatas="*res://scripts/bread/BreadDatas.gd"
 BreadTextureDatas="*res://scripts/bread/BreadTextureDatas.gd"
 UpgradeDatas="*res://scripts/UpgradeDatas.gd"
+SaveHandler="*res://scripts/SaveHandler.gd"
 
 [display]
 

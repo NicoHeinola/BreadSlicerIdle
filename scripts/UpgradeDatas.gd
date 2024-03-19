@@ -1,8 +1,10 @@
 extends Node
 
-var normal_upgrades: Dictionary = {
+var upgrades: Dictionary = {
 	"bread_spawn_delay": {
 		"name": "Spawn Delay",
+		"static_value": -1,
+		"static_value_index": -1,
 		"values": [2, 1.5, 1],
 		"value_scales": [
 			{
@@ -11,6 +13,8 @@ var normal_upgrades: Dictionary = {
 			},
 		],
 		"max_upgrades": 13,
+		"static_cost": -1,
+		"static_cost_index": -1,
 		"costs": [10, 20, 25, 50, 100],
 		"cost_scales": [
 			{
@@ -25,43 +29,47 @@ var normal_upgrades: Dictionary = {
 	}
 }
 
-func get_normal_upgrade_cost(upgrade_name: String, cost_index: int) -> float:
-	var upgrade: Dictionary = normal_upgrades[upgrade_name]
+func _ready() -> void:
+	for upgrade in GlobalStats.bought_upgrades:
+		var value: float = GlobalStats.bought_upgrades[upgrade]
+		set_next_upgrade_index(upgrade, value)
+
+func update_next_upgrade_index(upgrade_name: String):
+	var index = upgrades[upgrade_name]["static_cost_index"] + 1
+	set_next_upgrade_index(upgrade_name, index)
 	
-	var manual_cost_amount: int = len(upgrade["costs"])
-	if cost_index < manual_cost_amount:
-		return upgrade["costs"][cost_index]
+func set_next_upgrade_index(upgrade_name: String, index: int):
+	var upgrade: Dictionary = upgrades[upgrade_name]
+	
+	var new_value = calculate_value_at(upgrade["static_value_index"], index, upgrade["values"], upgrade["value_scales"], upgrade["static_value"])
+	upgrades[upgrade_name]["static_value"] = new_value
+	upgrades[upgrade_name]["static_value_index"] = index
+
+	var new_cost = calculate_value_at(upgrade["static_cost_index"], index, upgrade["costs"], upgrade["cost_scales"], upgrade["static_cost"])
+	upgrades[upgrade_name]["static_cost_index"] = index
+	upgrades[upgrade_name]["static_cost"] = new_cost
+
+func calculate_value_at(start_index: int, end_index: int, values: Array, operations: Array, value_at_start_index: float = 0) -> float:
+	var manual_values_amount: int = len(values)
+	if end_index < manual_values_amount:
+		return values[end_index]
+		
+	if(start_index <= manual_values_amount):
+		value_at_start_index = values[manual_values_amount - 1]
+		start_index = manual_values_amount - 1
+
 		
 	# How many times we need to loop the cost to find out what it is at the given index
-	var loop_amount: int = cost_index - manual_cost_amount + 1
-	
-	var upgrade_cost: float = upgrade["costs"][manual_cost_amount - 1]
+	var loop_amount: int = end_index - start_index
+
 	for i in range(loop_amount):
 		# Do each modification operation for the number
-		for operation in upgrade["cost_scales"]:
-			upgrade_cost = number_modify_handler(upgrade_cost, operation)
+		for operation in operations:
+			value_at_start_index = number_operation_handler(value_at_start_index, operation)
 	
-	return upgrade_cost
+	return value_at_start_index
 
-func get_normal_upgrade_value(upgrade_name: String, value_index: int) -> float:
-	var upgrade: Dictionary = normal_upgrades[upgrade_name]
-	
-	var manual_value_amount: int = len(upgrade["values"])
-	if value_index < manual_value_amount:
-		return upgrade["values"][value_index]
-		
-	# How many times we need to loop the cost to find out what it is at the given index
-	var loop_amount: int = value_index - manual_value_amount
-	
-	var upgrade_value: float = upgrade["values"][manual_value_amount - 1]
-	for i in range(loop_amount):
-		# Do each modification operation for the number
-		for operation in upgrade["value_scales"]:
-			upgrade_value = number_modify_handler(upgrade_value, operation)
-	
-	return upgrade_value
-
-func number_modify_handler(number: float, operation: Dictionary) -> float:
+func number_operation_handler(number: float, operation: Dictionary) -> float:
 	if operation["type"] == "add":
 		return number + operation["value"]
 	elif operation["type"] == "subtract":

@@ -7,8 +7,14 @@ extends Node2D
 func _ready() -> void:
 	self.start_bread_spawn_timer()
 
-	for i in range(10):
-		print(str(i) + ": ", UpgradeDatas.get_normal_upgrade_cost("bread_spawn_delay", i))
+	GlobalStats.connect("bought_upgrade", on_bought_upgrade)
+	
+func on_bought_upgrade(upgrade_name: String, new_value: int, old_value: int) -> void:
+	match upgrade_name:
+		"bread_spawn_delay":
+			bread_spawn_timer.wait_time = UpgradeDatas.get_normal_upgrade_value(upgrade_name, new_value)
+	
+	print(bread_spawn_timer.wait_time)
 
 func start_bread_spawn_timer() -> void:
 	bread_spawn_timer.start()
