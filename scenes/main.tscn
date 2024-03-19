@@ -1,10 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv6mgjn6lm01h"]
+[gd_scene load_steps=7 format=3 uid="uid://dv6mgjn6lm01h"]
 
 [ext_resource type="PackedScene" path="res://scenes/bread/BreadController.tscn" id="1_djegn"]
 [ext_resource type="PackedScene" uid="uid://cx3v62tylceih" path="res://scenes/UI/HomeUI.tscn" id="2_krt0l"]
+[ext_resource type="PackedScene" uid="uid://yk6y5vwdtd20" path="res://scenes/UI/StoreUI.tscn" id="3_4eo42"]
+[ext_resource type="PackedScene" uid="uid://d5wmcy45xijm" path="res://scenes/UI/SettingsUI.tscn" id="4_03wex"]
+[ext_resource type="PackedScene" uid="uid://bkwlk0touivpx" path="res://scenes/UI/BoostsUI.tscn" id="5_e8m0p"]
+[ext_resource type="PackedScene" uid="uid://dknucc3esvhyt" path="res://scenes/UI/UpgradesUI.tscn" id="6_a4ndy"]
 
 [node name="Main" type="Node2D"]
 
-[node name="UserInterface" parent="." instance=ExtResource("2_krt0l")]
-
 [node name="BreadController" parent="." instance=ExtResource("1_djegn")]
+
+[node name="HomeUI" parent="." instance=ExtResource("2_krt0l")]
+unique_name_in_owner = true
+
+[node name="StoreUI" parent="." instance=ExtResource("3_4eo42")]
+unique_name_in_owner = true
+visible = false
+
+[node name="SettingsUI" parent="." instance=ExtResource("4_03wex")]
+unique_name_in_owner = true
+visible = false
+
+[node name="BoostsUI" parent="." instance=ExtResource("5_e8m0p")]
+unique_name_in_owner = true
+visible = false
+
+[node name="UpgradesUI" parent="." instance=ExtResource("6_a4ndy")]
+unique_name_in_owner = true
+visible = false
