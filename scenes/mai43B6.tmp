@@ -7,7 +7,8 @@
 font_color = Color(1, 0.87451, 0, 1)
 
 [node name="Main" type="Node2D"]
-position = Vector2(329, 484)
+position = Vector2(253, 408)
+scale = Vector2(0.599998, 0.840001)
 
 [node name="bread" parent="." instance=ExtResource("2_ef2pw")]
 offset_left = -106.667
@@ -16,12 +17,11 @@ offset_right = -106.667
 offset_bottom = -8.33334
 
 [node name="Money" type="Label" parent="."]
-offset_left = -401.668
-offset_top = -471.428
-offset_right = -330.668
-offset_bottom = -448.428
-scale = Vector2(3.90434, 3.61336)
-text = "Money: 0"
+offset_left = -395.001
+offset_top = -457.142
+offset_right = -333.001
+offset_bottom = -434.142
+scale = Vector2(6.03653, 3.39975)
 label_settings = SubResource("LabelSettings_pwgkn")
 script = ExtResource("3_u1oel")
 
