@@ -1,28 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv6mgjn6lm01h"]
+[gd_scene load_steps=3 format=3 uid="uid://dv6mgjn6lm01h"]
 
-[ext_resource type="PackedScene" uid="uid://bwgsjk8akcba8" path="res://scenes/bread/Bread.tscn" id="2_ef2pw"]
-[ext_resource type="Script" path="res://scripts/Labels/MoneyLabel.gd" id="3_u1oel"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_pwgkn"]
-font_color = Color(1, 0.87451, 0, 1)
+[ext_resource type="PackedScene" uid="uid://b00goa2p8jmnl" path="res://scenes/bread/BreadController.tscn" id="1_djegn"]
+[ext_resource type="PackedScene" uid="uid://c6d4ls8cflleh" path="res://scenes/UI/HomeUI.tscn" id="2_krt0l"]
 
 [node name="Main" type="Node2D"]
-position = Vector2(329, 484)
 
-[node name="bread" parent="." instance=ExtResource("2_ef2pw")]
-offset_left = -106.667
-offset_top = -8.33334
-offset_right = -106.667
-offset_bottom = -8.33334
+[node name="UserInterface" parent="." instance=ExtResource("2_krt0l")]
 
-[node name="Money" type="Label" parent="."]
-offset_left = -401.668
-offset_top = -471.428
-offset_right = -330.668
-offset_bottom = -448.428
-scale = Vector2(3.90434, 3.61336)
-text = "Money: 0"
-label_settings = SubResource("LabelSettings_pwgkn")
-script = ExtResource("3_u1oel")
-
-[connection signal="sliced_bread_signal" from="bread" to="Money" method="_on_bread_sliced_bread_signal"]
+[node name="BreadController" parent="." instance=ExtResource("1_djegn")]
