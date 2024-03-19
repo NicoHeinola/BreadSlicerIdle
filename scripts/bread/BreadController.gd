@@ -5,7 +5,10 @@ extends Node2D
 @onready var bread_spawn_timer = $"BreadSpawnTimer"
 
 func _ready() -> void:
-	self.create_bread()
+	self.start_bread_spawn_timer()
+
+	for i in range(10):
+		print(str(i) + ": ", UpgradeDatas.get_normal_upgrade_cost("bread_spawn_delay", i))
 
 func start_bread_spawn_timer() -> void:
 	bread_spawn_timer.start()
