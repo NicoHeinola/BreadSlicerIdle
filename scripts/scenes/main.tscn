@@ -5,10 +5,22 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="Bg-1" type="Sprite2D" parent="."]
-position = Vector2(635, 257)
-texture = ExtResource("1_140xw")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Bread-1" type="Sprite2D" parent="."]
-position = Vector2(648, 277)
+[node name="UIContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Bg-1" type="TextureRect" parent="CanvasLayer/UIContainer"]
+layout_mode = 2
+texture = ExtResource("1_140xw")
+expand_mode = 5
+
+[node name="Bread-1" type="Sprite2D" parent="CanvasLayer"]
+z_index = 5
+position = Vector2(239, 371)
 texture = ExtResource("1_b0jdx")
