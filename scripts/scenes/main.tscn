@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv6mgjn6lm01h"]
+[gd_scene load_steps=2 format=3 uid="uid://dv6mgjn6lm01h"]
 
 [ext_resource type="Texture2D" uid="uid://bw7tav0u2nd85" path="res://graphics/bg/bg-1.png" id="1_140xw"]
 [ext_resource type="Script" path="res://scripts/Labels/MoneyLabel.gd" id="3_gi4hm"]
