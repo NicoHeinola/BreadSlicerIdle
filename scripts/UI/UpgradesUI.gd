@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+signal back_button_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,5 +13,5 @@ func _process(delta):
 
 
 func _on_back_button_pressed():
-	%UpgradesUI.visible=false
-	%HomeUI.visible=true
+	self.visible=false
+	back_button_pressed.emit()
