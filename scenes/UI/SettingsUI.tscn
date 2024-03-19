@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://d5wmcy45xijm"]
+[gd_scene load_steps=3 format=3 uid="uid://d5wmcy45xijm"]
 
 [ext_resource type="Script" path="res://scripts/UI/SettingsUI.gd" id="1_qkjhk"]
+[ext_resource type="Texture2D" uid="uid://dquprvi3gisud" path="res://graphics/bg/Settings_Page_Background.png" id="2_mj8vn"]
 
 [node name="SettingsUI" type="CanvasLayer"]
 script = ExtResource("1_qkjhk")
+
+[node name="SettingsPageBackground" type="Sprite2D" parent="."]
+position = Vector2(239, 400)
+texture = ExtResource("2_mj8vn")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

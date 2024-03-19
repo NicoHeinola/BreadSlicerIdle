@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dknucc3esvhyt"]
+[gd_scene load_steps=3 format=3 uid="uid://dknucc3esvhyt"]
 
 [ext_resource type="Script" path="res://scripts/UI/UpgradesUI.gd" id="1_qao3b"]
+[ext_resource type="PackedScene" uid="uid://3ftojd2kseb7" path="res://scenes/UI/UpgradeButtons.tscn" id="2_ftdpc"]
 
 [node name="UpgradesUI" type="CanvasLayer"]
 script = ExtResource("1_qao3b")
+
+[node name="Control2" parent="." instance=ExtResource("2_ftdpc")]
+offset_top = -1.0
+offset_bottom = -98.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -25,8 +30,6 @@ offset_top = -96.0
 offset_right = -120.0
 grow_horizontal = 2
 grow_vertical = 0
-toggle_mode = true
-button_pressed = true
 text = "Normal"
 
 [node name="AscensionButton" type="Button" parent="Control"]
@@ -40,7 +43,6 @@ offset_left = -120.0
 offset_top = -96.0
 grow_horizontal = 2
 grow_vertical = 0
-toggle_mode = true
 text = "Ascension"
 
 [node name="SupoerAscensionButton" type="Button" parent="Control"]
@@ -54,7 +56,6 @@ offset_top = -96.0
 offset_right = 120.0
 grow_horizontal = 2
 grow_vertical = 0
-toggle_mode = true
 text = "Super"
 
 [node name="BackButton" type="Button" parent="Control"]

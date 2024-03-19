@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalStats="*res://scripts/GlobalStats.gd"
-BreadDatas="*res://scripts/bread/BreadDatas.gd"
 BreadTextureDatas="*res://scripts/bread/BreadTextureDatas.gd"
+BreadDatas="*res://scripts/bread/BreadDatas.gd"
+GlobalStats="*res://scripts/GlobalStats.gd"
 UpgradeDatas="*res://scripts/UpgradeDatas.gd"
 
 [display]

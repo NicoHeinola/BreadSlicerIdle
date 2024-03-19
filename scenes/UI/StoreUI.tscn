@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://yk6y5vwdtd20"]
+[gd_scene load_steps=3 format=3 uid="uid://yk6y5vwdtd20"]
 
 [ext_resource type="Script" path="res://scripts/UI/StoreUI.gd" id="1_6gj6w"]
+[ext_resource type="Texture2D" uid="uid://cpdtk6c3uit5y" path="res://graphics/bg/Store_Page_Background.png" id="2_cvroi"]
 
 [node name="StoreUI" type="CanvasLayer"]
 script = ExtResource("1_6gj6w")
+
+[node name="StorePageBackground" type="Sprite2D" parent="."]
+position = Vector2(233, 399)
+texture = ExtResource("2_cvroi")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
