@@ -4,6 +4,8 @@ class_name Bread
 @onready var image_left_node: Sprite2D = $"ImageLeft"
 @onready var image_right_node: Sprite2D = $"ImageRight"
 
+signal sliced_bread_signal()
+
 var active_texture_index: int = 0
 var slice_start_pos: Vector2 = Vector2.ZERO
 
@@ -33,6 +35,7 @@ func end_slicing(position: Vector2) -> void:
 func sliced_bread() -> void:
 	Global.money += get_selected_texture_data()["base_money"]
 	print(Global.money)
+	sliced_bread_signal.emit() 
 
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseButton:

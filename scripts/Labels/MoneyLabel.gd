@@ -1,9 +1,7 @@
 extends Label
 
 
-func _process(delta):
-	self.text = str(Global.money)
 
-
-func _on_button_pressed():
-	Global.money += 1
+func _on_bread_sliced_bread_signal():
+	
+	self.text = "Money: " + str(Global.money)

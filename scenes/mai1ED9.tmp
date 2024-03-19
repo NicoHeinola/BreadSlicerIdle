@@ -17,12 +17,11 @@ offset_right = -106.667
 offset_bottom = -8.33334
 
 [node name="Money" type="Label" parent="."]
-offset_left = -401.668
-offset_top = -471.428
-offset_right = -330.668
-offset_bottom = -448.428
-scale = Vector2(3.90434, 3.61336)
-text = "Money: 0"
+offset_left = -395.001
+offset_top = -457.142
+offset_right = -333.001
+offset_bottom = -434.142
+scale = Vector2(6.03653, 3.39975)
 label_settings = SubResource("LabelSettings_pwgkn")
 script = ExtResource("3_u1oel")
 
