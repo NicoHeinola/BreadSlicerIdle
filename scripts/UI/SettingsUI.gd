@@ -16,3 +16,12 @@ func _on_back_button_pressed():
 	self.visible=false
 	back_button_pressed.emit()
 	
+
+
+func _on_reset_pressed():
+	self.visible = false
+	%ResetWarning.visible = true
+
+
+func _on_reset_warning_back_button_pressed():
+	self.visible = true
