@@ -1,22 +1,34 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwgsjk8akcba8"]
 
-[ext_resource type="Texture2D" uid="uid://d17myda7pwl1t" path="res://graphics/breads/bread-1.png" id="1_ilo54"]
 [ext_resource type="Script" path="res://scripts/bread/Bread.gd" id="1_vmsay"]
 
-[node name="bread" type="HBoxContainer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_taeiy"]
+
+[node name="bread" type="Node2D"]
 script = ExtResource("1_vmsay")
 
-[node name="ImageLeft" type="Sprite2D" parent="."]
-texture = ExtResource("1_ilo54")
+[node name="BodyLeft" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
-[node name="ImageRight" type="Sprite2D" parent="."]
-position = Vector2(232, 0)
-texture = ExtResource("1_ilo54")
-flip_h = true
+[node name="Collider" type="CollisionShape2D" parent="BodyLeft"]
+shape = SubResource("RectangleShape2D_taeiy")
+
+[node name="Image" type="Sprite2D" parent="BodyLeft"]
+region_enabled = true
+region_rect = Rect2(16, 45, 194, 415)
+
+[node name="BodyRight" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape2D" parent="BodyRight"]
+shape = SubResource("RectangleShape2D_taeiy")
+
+[node name="Image" type="Sprite2D" parent="BodyRight"]
+region_enabled = true
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

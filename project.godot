@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://scripts/Global.gd"
+GlobalStats="*res://scripts/GlobalStats.gd"
 BreadDatas="*res://scripts/bread/BreadDatas.gd"
 
 [display]
