@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bkwlk0touivpx"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="BoostsUI" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

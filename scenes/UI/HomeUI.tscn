@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6d4ls8cflleh"]
+[gd_scene load_steps=7 format=3 uid="uid://cx3v62tylceih"]
 
-[ext_resource type="Script" path="res://scripts/Labels/MoneyLabel.gd" id="1_ldmbv"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_1ih4u"]
-line_spacing = -5.0
-font_size = 24
-font_color = Color(0.945098, 0.835294, 0.129412, 1)
+[ext_resource type="Script" path="res://scripts/UI/HomeUI.gd" id="1_addqa"]
+[ext_resource type="PackedScene" uid="uid://bkwlk0touivpx" path="res://scenes/UI/BoostsUI.tscn" id="2_h35g5"]
+[ext_resource type="PackedScene" uid="uid://d5wmcy45xijm" path="res://scenes/UI/SettingsUI.tscn" id="3_3p50a"]
+[ext_resource type="PackedScene" uid="uid://yk6y5vwdtd20" path="res://scenes/UI/StoreUI.tscn" id="4_f8pib"]
+[ext_resource type="PackedScene" uid="uid://dknucc3esvhyt" path="res://scenes/UI/UpgradesUI.tscn" id="5_51aua"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dq4i7"]
 font_size = 24
 font_color = Color(1, 0, 1, 1)
 
-[node name="UserInterface" type="CanvasLayer"]
+[node name="HomeUI" type="CanvasLayer"]
+script = ExtResource("1_addqa")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -34,16 +34,6 @@ grow_vertical = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 15
-
-[node name="MoneyLabel" type="Label" parent="Control/CurrencyUI"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Money:
-123"
-label_settings = SubResource("LabelSettings_1ih4u")
-horizontal_alignment = 1
-script = ExtResource("1_ldmbv")
 
 [node name="Gems" type="Label" parent="Control/CurrencyUI"]
 layout_mode = 2
@@ -116,3 +106,26 @@ offset_top = 16.0
 offset_right = 86.0
 offset_bottom = 66.0
 text = "Boost"
+
+[node name="BoostsUI" parent="." instance=ExtResource("2_h35g5")]
+unique_name_in_owner = true
+visible = false
+
+[node name="SettingsUI" parent="." instance=ExtResource("3_3p50a")]
+unique_name_in_owner = true
+visible = false
+
+[node name="StoreUI" parent="." instance=ExtResource("4_f8pib")]
+unique_name_in_owner = true
+visible = false
+
+[node name="UpgradesUI" parent="." instance=ExtResource("5_51aua")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="pressed" from="Control/StoreButton" to="." method="_on_store_button_pressed"]
+[connection signal="pressed" from="Control/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="Control/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="back_button_pressed" from="SettingsUI" to="." method="_on_settings_ui_back_button_pressed"]
+[connection signal="back_button_pressed" from="StoreUI" to="." method="_on_store_ui_back_button_pressed"]
+[connection signal="back_button_pressed" from="UpgradesUI" to="." method="_on_upgrades_ui_back_button_pressed"]

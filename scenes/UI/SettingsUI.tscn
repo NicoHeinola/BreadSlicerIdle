@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://d5wmcy45xijm"]
+[gd_scene load_steps=2 format=3 uid="uid://d5wmcy45xijm"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[ext_resource type="Script" path="res://scripts/UI/SettingsUI.gd" id="1_qkjhk"]
+
+[node name="SettingsUI" type="CanvasLayer"]
+script = ExtResource("1_qkjhk")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -22,3 +25,5 @@ offset_top = -96.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Back"
+
+[connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]
