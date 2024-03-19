@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dv6mgjn6lm01h"]
 
 [ext_resource type="Texture2D" uid="uid://bw7tav0u2nd85" path="res://graphics/bg/bg-1.png" id="1_140xw"]
-[ext_resource type="Texture2D" uid="uid://d17myda7pwl1t" path="res://graphics/breads/bread-1.png" id="1_b0jdx"]
+[ext_resource type="PackedScene" uid="uid://bwgsjk8akcba8" path="res://scripts/bread/Bread.tscn" id="2_ef2pw"]
 
 [node name="Main" type="Node2D"]
 
@@ -20,7 +20,4 @@ layout_mode = 2
 texture = ExtResource("1_140xw")
 expand_mode = 5
 
-[node name="Bread-1" type="Sprite2D" parent="CanvasLayer"]
-z_index = 5
-position = Vector2(239, 371)
-texture = ExtResource("1_b0jdx")
+[node name="bread" parent="CanvasLayer" instance=ExtResource("2_ef2pw")]
