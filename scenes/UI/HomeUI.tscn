@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx3v62tylceih"]
+[gd_scene load_steps=8 format=3 uid="uid://c6d4ls8cflleh"]
 
 [ext_resource type="Script" path="res://scripts/UI/HomeUI.gd" id="1_addqa"]
-[ext_resource type="PackedScene" uid="uid://bkwlk0touivpx" path="res://scenes/UI/BoostsUI.tscn" id="2_h35g5"]
-[ext_resource type="PackedScene" uid="uid://d5wmcy45xijm" path="res://scenes/UI/SettingsUI.tscn" id="3_3p50a"]
-[ext_resource type="PackedScene" uid="uid://yk6y5vwdtd20" path="res://scenes/UI/StoreUI.tscn" id="4_f8pib"]
-[ext_resource type="PackedScene" uid="uid://dknucc3esvhyt" path="res://scenes/UI/UpgradesUI.tscn" id="5_51aua"]
+[ext_resource type="Script" path="res://scripts/Labels/MoneyLabel.gd" id="1_ldmbv"]
+[ext_resource type="PackedScene" path="res://scenes/UI/BoostsUI.tscn" id="2_h35g5"]
+[ext_resource type="PackedScene" path="res://scenes/UI/SettingsUI.tscn" id="3_3p50a"]
+[ext_resource type="PackedScene" path="res://scenes/UI/StoreUI.tscn" id="4_f8pib"]
+[ext_resource type="PackedScene" path="res://scenes/UI/UpgradesUI.tscn" id="5_51aua"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dq4i7"]
 font_size = 24
@@ -42,6 +43,10 @@ size_flags_vertical = 0
 text = "Gems
 "
 label_settings = SubResource("LabelSettings_dq4i7")
+
+[node name="Label" type="Label" parent="Control/CurrencyUI"]
+layout_mode = 2
+script = ExtResource("1_ldmbv")
 
 [node name="StoreButton" type="Button" parent="Control"]
 layout_mode = 1
@@ -126,6 +131,3 @@ visible = false
 [connection signal="pressed" from="Control/StoreButton" to="." method="_on_store_button_pressed"]
 [connection signal="pressed" from="Control/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="Control/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="back_button_pressed" from="SettingsUI" to="." method="_on_settings_ui_back_button_pressed"]
-[connection signal="back_button_pressed" from="StoreUI" to="." method="_on_store_ui_back_button_pressed"]
-[connection signal="back_button_pressed" from="UpgradesUI" to="." method="_on_upgrades_ui_back_button_pressed"]
