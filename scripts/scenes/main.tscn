@@ -1,26 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv6mgjn6lm01h"]
+[gd_scene load_steps=4 format=3 uid="uid://dv6mgjn6lm01h"]
 
 [ext_resource type="Texture2D" uid="uid://bw7tav0u2nd85" path="res://graphics/bg/bg-1.png" id="1_140xw"]
 [ext_resource type="Texture2D" uid="uid://d17myda7pwl1t" path="res://graphics/breads/bread-1.png" id="1_b0jdx"]
+[ext_resource type="Script" path="res://scripts/scenes/Score.gd" id="3_gi4hm"]
 
 [node name="Main" type="Node2D"]
+position = Vector2(253, 408)
+scale = Vector2(0.599998, 0.840001)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UIContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="Bg-1" type="TextureRect" parent="CanvasLayer/UIContainer"]
-layout_mode = 2
+[node name="Bg-1" type="Sprite2D" parent="."]
+position = Vector2(-41.6667, -15.4762)
+scale = Vector2(1, 1)
 texture = ExtResource("1_140xw")
 expand_mode = 5
 
-[node name="Bread-1" type="Sprite2D" parent="CanvasLayer"]
-z_index = 5
-position = Vector2(239, 371)
+[node name="Bread-1" type="Sprite2D" parent="."]
+position = Vector2(-3.33334, 1.19046)
+scale = Vector2(1, 1)
 texture = ExtResource("1_b0jdx")
+
+[node name="Score" type="Label" parent="."]
+offset_left = -85.0003
+offset_top = -161.904
+offset_right = -45.0003
+offset_bottom = -138.904
+scale = Vector2(4.21221, 3.85924)
+script = ExtResource("3_gi4hm")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -160.001
+offset_top = -60.7142
+offset_right = -59.0005
+offset_bottom = -29.7142
+scale = Vector2(3.20039, 4.14276)
+text = "Press me!!!"
+
+[connection signal="pressed" from="Button" to="Score" method="_on_button_pressed"]
