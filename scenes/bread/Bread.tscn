@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwgsjk8akcba8"]
+[gd_scene load_steps=4 format=3 uid="uid://bwgsjk8akcba8"]
 
 [ext_resource type="Script" path="res://scripts/bread/Bread.gd" id="1_vmsay"]
+[ext_resource type="Texture2D" uid="uid://d17myda7pwl1t" path="res://graphics/breads/bread-1.png" id="2_axmr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taeiy"]
+size = Vector2(100, 100)
 
 [node name="bread" type="Node2D"]
 script = ExtResource("1_vmsay")
@@ -15,6 +17,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_taeiy")
 
 [node name="Image" type="Sprite2D" parent="BodyLeft"]
+texture = ExtResource("2_axmr1")
 region_enabled = true
 region_rect = Rect2(16, 45, 194, 415)
 

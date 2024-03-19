@@ -36,14 +36,15 @@ theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 15
 
-[node name="Money" type="Label" parent="Control/CurrencyUI"]
+[node name="MoneyLabel" type="Label" parent="Control/CurrencyUI"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Money:
-0"
+123"
 label_settings = SubResource("LabelSettings_1ih4u")
 horizontal_alignment = 1
+script = ExtResource("1_ldmbv")
 
 [node name="Gems" type="Label" parent="Control/CurrencyUI"]
 layout_mode = 2
