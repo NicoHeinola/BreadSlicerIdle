@@ -2,8 +2,8 @@ extends Label
 
 
 func _process(delta):
-	self.text = str(Global.score)
+	self.text = str(Global.money)
 
 
 func _on_button_pressed():
-	Global.score += 1
+	Global.money += 1

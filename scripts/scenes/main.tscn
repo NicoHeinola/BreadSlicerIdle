@@ -1,9 +1,35 @@
 [gd_scene load_steps=2 format=3 uid="uid://dv6mgjn6lm01h"]
 
-[ext_resource type="PackedScene" uid="uid://bwgsjk8akcba8" path="res://scripts/scenes/bread/Bread.tscn" id="2_ef2pw"]
+[ext_resource type="Texture2D" uid="uid://bw7tav0u2nd85" path="res://graphics/bg/bg-1.png" id="1_140xw"]
+[ext_resource type="PackedScene" uid="uid://bwgsjk8akcba8" path="res://scripts/bread/Bread.tscn" id="2_ef2pw"]
+[ext_resource type="Script" path="res://scripts/scenes/MoneyLabel.gd" id="3_gi4hm"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(253, 408)
 scale = Vector2(0.599998, 0.840001)
 
-[node name="bread" parent="." instance=ExtResource("2_ef2pw")]
+[node name="Bg-1" type="Sprite2D" parent="."]
+position = Vector2(3.33335, 2.38096)
+texture = ExtResource("1_140xw")
+
+[node name="CanvasLayer#bread" parent="." instance=ExtResource("2_ef2pw")]
+position = Vector2(15, 7.14288)
+
+[node name="Button" type="Button" parent="CanvasLayer#bread"]
+offset_left = -185.001
+offset_top = -119.047
+offset_right = -58.0006
+offset_bottom = -56.0475
+scale = Vector2(3.20039, 4.14276)
+
+[node name="Money" type="Label" parent="CanvasLayer#bread"]
+offset_left = -53.3335
+offset_top = -208.333
+offset_right = -13.3335
+offset_bottom = -185.333
+scale = Vector2(4.21221, 3.85924)
+script = ExtResource("3_gi4hm")
+
+[ext_resource type="PackedScene" uid="uid://bwgsjk8akcba8" path="res://scripts/scenes/bread/Bread.tscn" id="2_ef2pw"]
+
+[connection signal="pressed" from="CanvasLayer#bread/Button" to="CanvasLayer#bread/Money" method="_on_button_pressed"]
