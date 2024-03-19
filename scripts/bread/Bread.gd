@@ -36,22 +36,27 @@ func set_texture(texture: Texture2D) -> void:
 		texture.get_width() / 2, 0, texture.get_width() / 2, texture.get_height()
 	)
 
-
 func reset_bread() -> void:
+	print("Reset")
 	var texture = self.get_selected_texture_data()["texture"]
 	var screen_center = get_viewport_rect().size / 2
+	self.position = Vector2(screen_center.x, screen_center.y)
 
 	body_left.gravity_scale = 0
 	body_right.gravity_scale = 0
-
-	self.position = Vector2(screen_center.x, screen_center.y)
-
 	body_left.set_position(Vector2(-texture.get_width() / 4, 0))
 	body_right.set_position(Vector2(texture.get_width() / 4, 0))
 
+	image_left_node.set_position(Vector2(0, -1000))
+	image_right_node.set_position(Vector2(0, -1000))
+
+	var tween: Tween = get_tree().create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(image_left_node, "position", Vector2(image_left_node.position.x, 0), 0.2)
+	tween.tween_property(image_right_node, "position", Vector2(image_right_node.position.x, 0), 0.2)
+
 	collider_left.shape.extents = Vector2(texture.get_width() / 2, texture.get_height() / 2)
 	collider_right.shape.extents = Vector2(texture.get_width() / 2, texture.get_height() / 2)
-
 
 func _ready() -> void:
 	self.set_texture(get_selected_texture_data()["texture"])
@@ -106,5 +111,5 @@ func _unhandled_input(event) -> void:
 
 
 func _on_despawn_timer_timeout():
+	print("Despawn")
 	self.queue_free()
-	print("Ãƒâ€“L")

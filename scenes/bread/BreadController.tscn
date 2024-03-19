@@ -4,3 +4,9 @@
 
 [node name="BreadController" type="Node2D"]
 script = ExtResource("1_0rctm")
+
+[node name="BreadSpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="BreadSpawnTimer" to="." method="create_bread"]
