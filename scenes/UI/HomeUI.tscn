@@ -1,15 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6d4ls8cflleh"]
+[gd_scene load_steps=9 format=3 uid="uid://cx3v62tylceih"]
 
 [ext_resource type="Script" path="res://scripts/UI/HomeUI.gd" id="1_addqa"]
-[ext_resource type="Script" path="res://scripts/Labels/MoneyLabel.gd" id="1_ldmbv"]
-[ext_resource type="PackedScene" path="res://scenes/UI/BoostsUI.tscn" id="2_h35g5"]
-[ext_resource type="PackedScene" path="res://scenes/UI/SettingsUI.tscn" id="3_3p50a"]
-[ext_resource type="PackedScene" path="res://scenes/UI/StoreUI.tscn" id="4_f8pib"]
-[ext_resource type="PackedScene" path="res://scenes/UI/UpgradesUI.tscn" id="5_51aua"]
+[ext_resource type="PackedScene" uid="uid://bkwlk0touivpx" path="res://scenes/UI/BoostsUI.tscn" id="2_h35g5"]
+[ext_resource type="Script" path="res://scripts/Labels/MoneyLabel.gd" id="2_pogwx"]
+[ext_resource type="PackedScene" uid="uid://d5wmcy45xijm" path="res://scenes/UI/SettingsUI.tscn" id="3_3p50a"]
+[ext_resource type="PackedScene" uid="uid://yk6y5vwdtd20" path="res://scenes/UI/StoreUI.tscn" id="4_f8pib"]
+[ext_resource type="PackedScene" uid="uid://dknucc3esvhyt" path="res://scenes/UI/UpgradesUI.tscn" id="5_51aua"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dq4i7"]
 font_size = 24
 font_color = Color(1, 0, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gd0tw"]
+font_size = 24
+font_color = Color(0.952941, 0.796078, 0, 1)
 
 [node name="HomeUI" type="CanvasLayer"]
 script = ExtResource("1_addqa")
@@ -44,9 +48,16 @@ text = "Gems
 "
 label_settings = SubResource("LabelSettings_dq4i7")
 
-[node name="Label" type="Label" parent="Control/CurrencyUI"]
+[node name="MoneyLabel" type="Label" parent="Control/CurrencyUI"]
 layout_mode = 2
-script = ExtResource("1_ldmbv")
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Money:
+Undefined"
+label_settings = SubResource("LabelSettings_gd0tw")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_pogwx")
 
 [node name="StoreButton" type="Button" parent="Control"]
 layout_mode = 1
@@ -56,12 +67,11 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -240.0
-offset_top = -107.0
+offset_top = -96.0
 offset_right = -80.0
-offset_bottom = -11.0001
+offset_bottom = -0.00012207
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1, 1.12)
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Store
@@ -75,12 +85,10 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -80.0
-offset_top = -107.0
+offset_top = -96.0
 offset_right = 80.0
-offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1, 1.12)
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Upgrades
@@ -94,12 +102,10 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 80.0
-offset_top = -107.0
+offset_top = -96.0
 offset_right = 240.0
-offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1, 1.12)
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Settings"
@@ -131,3 +137,6 @@ visible = false
 [connection signal="pressed" from="Control/StoreButton" to="." method="_on_store_button_pressed"]
 [connection signal="pressed" from="Control/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="Control/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="back_button_pressed" from="SettingsUI" to="." method="_on_settings_ui_back_button_pressed"]
+[connection signal="back_button_pressed" from="StoreUI" to="." method="_on_store_ui_back_button_pressed"]
+[connection signal="back_button_pressed" from="UpgradesUI" to="." method="_on_upgrades_ui_back_button_pressed"]
