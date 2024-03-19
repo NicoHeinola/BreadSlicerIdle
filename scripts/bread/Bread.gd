@@ -8,7 +8,7 @@ var active_texture_index: int = 0
 var slice_start_pos: Vector2 = Vector2.ZERO
 
 func get_selected_texture_data() -> Dictionary:
-	return BreadTextureDatas.bread_textures[active_texture_index]
+	return BreadDatas.textures[active_texture_index]
 
 func set_texture(texture: Texture2D) -> void:
 	image_left_node.texture = texture
@@ -31,7 +31,8 @@ func end_slicing(position: Vector2) -> void:
 	sliced_bread()
 
 func sliced_bread() -> void:
-	print("Sliced")
+	Global.money += get_selected_texture_data()["base_money"]
+	print(Global.money)
 
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseButton:

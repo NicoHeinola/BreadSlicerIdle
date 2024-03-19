@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="BreadSlicerIdle"
-run/main_scene="res://scripts/scenes/main.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scripts/Global.gd"
-BreadTextureDatas="*res://scripts/bread/BreadTextureDatas.gd"
+BreadDatas="*res://scripts/bread/BreadDatas.gd"
 
 [display]
 
