@@ -1,14 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dknucc3esvhyt"]
+[gd_scene load_steps=5 format=3 uid="uid://dosvoe3muh58t"]
 
 [ext_resource type="Script" path="res://scripts/UI/UpgradesUI.gd" id="1_qao3b"]
-[ext_resource type="PackedScene" uid="uid://3ftojd2kseb7" path="res://scenes/UI/UpgradeButtons.tscn" id="2_ftdpc"]
+[ext_resource type="PackedScene" uid="uid://c3jte21hi4dc4" path="res://scenes/UI/UpgradeList.tscn" id="3_gsc66"]
+[ext_resource type="Texture2D" uid="uid://clv5menv0xmon" path="res://graphics/bg/Upgrade_Page_Background.png" id="3_up5ic"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_va0d0"]
 
 [node name="UpgradesUI" type="CanvasLayer"]
 script = ExtResource("1_qao3b")
 
-[node name="Control2" parent="." instance=ExtResource("2_ftdpc")]
-offset_top = -1.0
-offset_bottom = -98.0
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_up5ic")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -70,5 +77,26 @@ offset_top = -96.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Back"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="UpgradeTabs" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_va0d0")
+tabs_visible = false
+
+[node name="NormalUpgradeList" parent="MarginContainer/UpgradeTabs" instance=ExtResource("3_gsc66")]
+layout_mode = 2
 
 [connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]

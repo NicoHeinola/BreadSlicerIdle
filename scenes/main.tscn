@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv6mgjn6lm01h"]
+[gd_scene load_steps=5 format=3 uid="uid://dv6mgjn6lm01h"]
 
-[ext_resource type="PackedScene" path="res://scenes/bread/BreadController.tscn" id="1_djegn"]
+[ext_resource type="PackedScene" uid="uid://b00goa2p8jmnl" path="res://scenes/bread/BreadController.tscn" id="1_djegn"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_kmgah"]
 [ext_resource type="Texture2D" uid="uid://d3xhm3lqyv2hy" path="res://graphics/bg/Main_Page_Background.png" id="1_r7phd"]
-[ext_resource type="PackedScene" uid="uid://cx3v62tylceih" path="res://scenes/UI/HomeUI.tscn" id="2_krt0l"]
+[ext_resource type="PackedScene" uid="uid://c6d4ls8cflleh" path="res://scenes/UI/HomeUI.tscn" id="2_krt0l"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kmgah")

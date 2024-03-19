@@ -3,6 +3,7 @@ extends Node
 var upgrades: Dictionary = {
 	"bread_spawn_delay": {
 		"name": "Spawn Delay",
+		"type": "normal",
 		"static_value": -1,
 		"static_value_index": -1,
 		"values": [2, 1.5, 1],
@@ -33,6 +34,9 @@ func _ready() -> void:
 	for upgrade in GlobalStats.bought_upgrades:
 		var value: float = GlobalStats.bought_upgrades[upgrade]
 		set_next_upgrade_index(upgrade, value)
+
+func can_afford_upgrade(upgrade_name: String, money: int) -> bool:
+	return money >= upgrades[upgrade_name]["static_cost"]
 
 func update_next_upgrade_index(upgrade_name: String):
 	var index = upgrades[upgrade_name]["static_cost_index"] + 1

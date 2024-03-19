@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cx3v62tylceih"]
+[gd_scene load_steps=9 format=3 uid="uid://c6d4ls8cflleh"]
 
 [ext_resource type="Script" path="res://scripts/UI/HomeUI.gd" id="1_addqa"]
-[ext_resource type="PackedScene" uid="uid://bkwlk0touivpx" path="res://scenes/UI/BoostsUI.tscn" id="2_h35g5"]
+[ext_resource type="PackedScene" path="res://scenes/UI/BoostsUI.tscn" id="2_h35g5"]
 [ext_resource type="Script" path="res://scripts/Labels/MoneyLabel.gd" id="2_pogwx"]
-[ext_resource type="PackedScene" uid="uid://d5wmcy45xijm" path="res://scenes/UI/SettingsUI.tscn" id="3_3p50a"]
-[ext_resource type="PackedScene" uid="uid://yk6y5vwdtd20" path="res://scenes/UI/StoreUI.tscn" id="4_f8pib"]
-[ext_resource type="PackedScene" uid="uid://dknucc3esvhyt" path="res://scenes/UI/UpgradesUI.tscn" id="5_51aua"]
+[ext_resource type="PackedScene" path="res://scenes/UI/SettingsUI.tscn" id="3_3p50a"]
+[ext_resource type="PackedScene" path="res://scenes/UI/StoreUI.tscn" id="4_f8pib"]
+[ext_resource type="PackedScene" uid="uid://dosvoe3muh58t" path="res://scenes/UI/UpgradesUI.tscn" id="5_51aua"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dq4i7"]
 font_size = 24

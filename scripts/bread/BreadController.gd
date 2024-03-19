@@ -12,9 +12,9 @@ func _ready() -> void:
 func on_bought_upgrade(upgrade_name: String, new_value: int, old_value: int) -> void:
 	match upgrade_name:
 		"bread_spawn_delay":
-			bread_spawn_timer.wait_time = UpgradeDatas.get_normal_upgrade_value(upgrade_name, new_value)
+			bread_spawn_timer.wait_time = UpgradeDatas.upgrades[upgrade_name]["static_value"]
 	
-	print(bread_spawn_timer.wait_time)
+	print(bread_spawn_timer.wait_time, upgrade_name)
 
 func start_bread_spawn_timer() -> void:
 	bread_spawn_timer.start()
