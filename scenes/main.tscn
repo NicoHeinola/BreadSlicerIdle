@@ -7,8 +7,7 @@
 font_color = Color(1, 0.87451, 0, 1)
 
 [node name="Main" type="Node2D"]
-position = Vector2(253, 408)
-scale = Vector2(0.599998, 0.840001)
+position = Vector2(329, 484)
 
 [node name="bread" parent="." instance=ExtResource("2_ef2pw")]
 offset_left = -106.667
