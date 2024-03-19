@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv6mgjn6lm01h"]
+[gd_scene load_steps=3 format=3 uid="uid://dv6mgjn6lm01h"]
 
-[ext_resource type="PackedScene" uid="uid://b00goa2p8jmnl" path="res://scenes/bread/BreadController.tscn" id="1_djegn"]
+[ext_resource type="PackedScene" path="res://scenes/bread/BreadController.tscn" id="1_djegn"]
+[ext_resource type="PackedScene" uid="uid://cx3v62tylceih" path="res://scenes/UI/HomeUI.tscn" id="2_krt0l"]
 
 [node name="Main" type="Node2D"]
+
+[node name="UserInterface" parent="." instance=ExtResource("2_krt0l")]
 
 [node name="BreadController" parent="." instance=ExtResource("1_djegn")]

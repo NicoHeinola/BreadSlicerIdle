@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bftahomygbopw"]
+[gd_scene load_steps=3 format=3 uid="uid://cx3v62tylceih"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ih4u"]
 line_spacing = -5.0
@@ -50,9 +50,18 @@ text = "Gems
 label_settings = SubResource("LabelSettings_dq4i7")
 
 [node name="StoreButton" type="Button" parent="Control"]
-offset_top = 693.0
-offset_right = 160.0
-offset_bottom = 789.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -107.0
+offset_right = -80.0
+offset_bottom = -11.0001
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(1, 1.12)
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -60,10 +69,18 @@ text = "Store
 "
 
 [node name="UpgradeButton" type="Button" parent="Control"]
-offset_left = 160.0
-offset_top = 693.0
-offset_right = 320.0
-offset_bottom = 789.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -107.0
+offset_right = 80.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(1, 1.12)
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -71,19 +88,27 @@ text = "Upgrades
 "
 
 [node name="SettingsButton" type="Button" parent="Control"]
-offset_left = 320.0
-offset_top = 693.0
-offset_right = 480.0
-offset_bottom = 789.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = -107.0
+offset_right = 240.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(1, 1.12)
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Settings"
 
-[node name="Button" type="Button" parent="Control"]
+[node name="BoostsButton" type="Button" parent="Control"]
 layout_mode = 1
-offset_left = 17.0
-offset_top = 17.0
-offset_right = 87.0
-offset_bottom = 67.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 86.0
+offset_bottom = 66.0
 text = "Boost"
