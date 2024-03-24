@@ -9,6 +9,14 @@ var upgrade_item_map: Dictionary = {}
 
 func _ready():
 	GlobalStats.connect("bought_upgrade", on_bought_upgrade)
+	GlobalStats.connect("stats_reset", reload_upgrades)
+	
+	reload_upgrades()
+	
+func reload_upgrades() -> void:
+	for upgrade_key in upgrade_item_map:
+		var child = upgrade_item_map[upgrade_key]
+		item_list.remove_child(child)
 	
 	for upgrade_name in UpgradeDatas.upgrades:
 		var upgrade: Dictionary = UpgradeDatas.upgrades[upgrade_name]

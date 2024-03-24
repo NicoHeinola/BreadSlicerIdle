@@ -1,55 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://d5wmcy45xijm"]
+[gd_scene load_steps=6 format=3 uid="uid://d5wmcy45xijm"]
 
 [ext_resource type="Script" path="res://scripts/UI/SettingsUI.gd" id="1_qkjhk"]
-[ext_resource type="Texture2D" uid="uid://dquprvi3gisud" path="res://graphics/bg/Settings_Page_Background.png" id="2_mj8vn"]
-[ext_resource type="PackedScene" uid="uid://dr1vviordwvvq" path="res://scenes/UI/ResetWarning.tscn" id="3_eja5x"]
+[ext_resource type="StyleBox" uid="uid://cdnxu3hih2x4" path="res://themes/ButtonPanel.tres" id="2_oynl5"]
+[ext_resource type="PackedScene" uid="uid://bo6dbiysjr47q" path="res://scenes/UI/ResetWarning.tscn" id="3_eja5x"]
+[ext_resource type="Theme" uid="uid://xy7tff4kg2go" path="res://themes/BaseTheme.tres" id="3_iueak"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vxwq"]
+bg_color = Color(0.756863, 0.756863, 0.756863, 1)
 
 [node name="SettingsUI" type="CanvasLayer"]
 script = ExtResource("1_qkjhk")
 
-[node name="SettingsPageBackground" type="Sprite2D" parent="."]
-position = Vector2(239, 400)
-texture = ExtResource("2_mj8vn")
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
+[node name="SettingsPageBackground" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_3vxwq")
+metadata/_edit_use_anchors_ = true
 
-[node name="BackButton" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 75)
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -120.0
-offset_top = -96.0
-grow_horizontal = 0
+offset_top = -75.0
+grow_horizontal = 2
 grow_vertical = 0
-text = "Back"
+size_flags_vertical = 8
+theme_override_styles/panel = ExtResource("2_oynl5")
 
-[node name="Reset" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -94.0
-offset_right = 171.0
-grow_vertical = 0
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Reset" type="Button" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_iueak")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.592157, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.776471, 0, 0, 1)
-theme_override_font_sizes/font_size = 57
+theme_override_font_sizes/font_size = 45
 text = "RESET"
+
+[node name="BackButton" type="Button" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_iueak")
+text = "Back"
 
 [node name="ResetWarning" parent="." instance=ExtResource("3_eja5x")]
 unique_name_in_owner = true
 visible = false
 
-[connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="Control/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="back_button_pressed" from="ResetWarning" to="." method="_on_reset_warning_back_button_pressed"]
+[connection signal="yes_button_pressed" from="ResetWarning" to="." method="_on_reset_warning_yes_button_pressed"]

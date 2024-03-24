@@ -2,6 +2,7 @@ extends Node
 
 signal money_changed(new_value: int, old_value: int)
 signal bought_upgrade(upgrade_name: String, new_value: int, old_value: int)
+signal stats_reset()
 
 var money: int :
 	get:
@@ -16,13 +17,11 @@ var ascension_points: int = 0
 var super_ascension_points: int = 0
 
 # Upgrades
-
 var bought_upgrades = {
 	"bread_spawn_delay": 0,
 }
 
 func buy_upgrade(upgrade_name: String, amount: int = 1) -> void:
-
 	var old_value = bought_upgrades[upgrade_name]	
 	
 	for i in range(amount):
@@ -35,3 +34,16 @@ func buy_upgrade(upgrade_name: String, amount: int = 1) -> void:
 		UpgradeDatas.update_next_upgrade_index(upgrade_name)
 
 	bought_upgrade.emit(upgrade_name, bought_upgrades[upgrade_name], old_value)
+
+func reset() -> void:
+	money = 0
+	gems = 0
+	ascension_points = 0
+	super_ascension_points = 0
+	for upgrade in bought_upgrades:
+		bought_upgrades[upgrade] = 0
+	
+	stats_reset.emit()
+	
+	for upgrade in bought_upgrades:
+		bought_upgrade.emit(upgrade, bought_upgrades[upgrade], 0)

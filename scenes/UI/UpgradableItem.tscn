@@ -25,6 +25,7 @@ theme_override_constants/margin_bottom = 5
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 14
 text = "Item name here"
 
 [node name="Button" type="Button" parent="MarginContainer"]

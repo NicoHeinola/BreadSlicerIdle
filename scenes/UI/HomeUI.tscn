@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6d4ls8cflleh"]
+[gd_scene load_steps=11 format=3 uid="uid://c6d4ls8cflleh"]
 
 [ext_resource type="Script" path="res://scripts/UI/HomeUI.gd" id="1_addqa"]
 [ext_resource type="PackedScene" path="res://scenes/UI/BoostsUI.tscn" id="2_h35g5"]
 [ext_resource type="Script" path="res://scripts/Labels/MoneyLabel.gd" id="2_pogwx"]
-[ext_resource type="PackedScene" path="res://scenes/UI/SettingsUI.tscn" id="3_3p50a"]
-[ext_resource type="PackedScene" path="res://scenes/UI/StoreUI.tscn" id="4_f8pib"]
+[ext_resource type="PackedScene" uid="uid://d5wmcy45xijm" path="res://scenes/UI/SettingsUI.tscn" id="3_3p50a"]
+[ext_resource type="Theme" uid="uid://xy7tff4kg2go" path="res://themes/BaseTheme.tres" id="3_d633w"]
+[ext_resource type="PackedScene" uid="uid://c1odlayjn21ok" path="res://scenes/UI/StoreUI.tscn" id="4_f8pib"]
+[ext_resource type="StyleBox" uid="uid://cdnxu3hih2x4" path="res://themes/ButtonPanel.tres" id="4_tvagg"]
 [ext_resource type="PackedScene" uid="uid://dosvoe3muh58t" path="res://scenes/UI/UpgradesUI.tscn" id="5_51aua"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dq4i7"]
@@ -61,57 +63,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_pogwx")
 
-[node name="StoreButton" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -240.0
-offset_top = -96.0
-offset_right = -80.0
-offset_bottom = -0.00012207
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Store
-"
-
-[node name="UpgradeButton" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -96.0
-offset_right = 80.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Upgrades
-"
-
-[node name="SettingsButton" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = -96.0
-offset_right = 240.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Settings"
-
 [node name="BoostsButton" type="Button" parent="Control"]
 layout_mode = 1
 offset_left = 16.0
@@ -119,6 +70,46 @@ offset_top = 16.0
 offset_right = 86.0
 offset_bottom = 66.0
 text = "Boost"
+
+[node name="BottomPanel" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_d633w")
+theme_override_styles/panel = ExtResource("4_tvagg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/BottomPanel"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="StoreButton" type="Button" parent="Control/BottomPanel/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_d633w")
+text = "Store
+"
+
+[node name="UpgradeButton" type="Button" parent="Control/BottomPanel/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_d633w")
+text = "Upgrades
+"
+
+[node name="SettingsButton" type="Button" parent="Control/BottomPanel/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_d633w")
+text = "Settings"
 
 [node name="BoostsUI" parent="." instance=ExtResource("2_h35g5")]
 unique_name_in_owner = true
@@ -136,9 +127,9 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
-[connection signal="pressed" from="Control/StoreButton" to="." method="_on_store_button_pressed"]
-[connection signal="pressed" from="Control/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
-[connection signal="pressed" from="Control/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/BottomPanel/HBoxContainer/StoreButton" to="." method="_on_store_button_pressed"]
+[connection signal="pressed" from="Control/BottomPanel/HBoxContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="Control/BottomPanel/HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="back_button_pressed" from="SettingsUI" to="." method="_on_settings_ui_back_button_pressed"]
 [connection signal="back_button_pressed" from="StoreUI" to="." method="_on_store_ui_back_button_pressed"]
 [connection signal="back_button_pressed" from="UpgradesUI" to="." method="_on_upgrades_ui_back_button_pressed"]

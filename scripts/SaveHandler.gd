@@ -2,7 +2,11 @@ extends Node
 
 func _ready() -> void:
 	load_game()
-
+	var autosave_timer: Timer = Timer.new()
+	autosave_timer.start(30)
+	autosave_timer.connect("timeout", save_game)
+	self.add_child(autosave_timer)
+	
 func save_game() -> void:
 	var stats_save_file = FileAccess.open("user://stats.save", FileAccess.WRITE)
 	
@@ -39,4 +43,5 @@ func load_game() -> void:
 		GlobalStats.ascension_points = stats_data["ascension_points"]
 		GlobalStats.super_ascension_points = stats_data["super_ascension_points"]
 		GlobalStats.bought_upgrades = stats_data["bought_upgrades"]
-		
+	
+	UpgradeDatas.reload_upgrade_datas()

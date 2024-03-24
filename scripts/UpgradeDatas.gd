@@ -31,6 +31,9 @@ var upgrades: Dictionary = {
 }
 
 func _ready() -> void:
+	GlobalStats.connect("stats_reset", reload_upgrade_datas)
+
+func reload_upgrade_datas() -> void:
 	for upgrade in GlobalStats.bought_upgrades:
 		var value: float = GlobalStats.bought_upgrades[upgrade]
 		set_next_upgrade_index(upgrade, value)
@@ -51,7 +54,7 @@ func set_next_upgrade_index(upgrade_name: String, index: int):
 
 	var new_cost = calculate_value_at(upgrade["static_cost_index"], index, upgrade["costs"], upgrade["cost_scales"], upgrade["static_cost"])
 	upgrades[upgrade_name]["static_cost_index"] = index
-	upgrades[upgrade_name]["static_cost"] = new_cost
+	upgrades[upgrade_name]["static_cost"] = round(new_cost)
 
 func calculate_value_at(start_index: int, end_index: int, values: Array, operations: Array, value_at_start_index: float = 0) -> float:
 	var manual_values_amount: int = len(values)
